@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Game Development Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="main-content">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>Have questions or suggestions? We'd love to hear from you!</p>
+
+            <form action="submit_form.php" method="post">
+                <label for="name">Your Name:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="email">Your Email:</label><br>
+                <input type="email" id="email" name="email" required><br><br>
+
+                <label for="message">Your Message:</label><br>
+                <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <h3>Additional Contact Information:</h3>
+                <ul>
+                    <li>Instagram: <a href="https://www.instagram.com/your_instagram_id/" target="_blank">@your_instagram_id</a></li>
+                    <li>Phone: <a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/your_linkedin_profile/" target="_blank">Your Name on LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Game Development Blog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

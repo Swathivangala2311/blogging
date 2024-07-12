@@ -1,0 +1,90 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Development Blog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Game Development Blog</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="games.html">Games</a></li>
+                    <li><a href="tutorials.html">Tutorials</a></li>
+                    <li><a href="about.html">About</a></li>
+                </ul>
+            </nav>
+            <form onsubmit="return searchGames()" class="search-form">
+                <input type="text" id="search-input" placeholder="Search games...">
+                <button type="submit">Search</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Main content -->
+    <section class="main-content">
+        <div class="container" id="search-results">
+            <!-- Search results will be displayed here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Game Development Blog. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for search functionality -->
+    <script>
+        function searchGames() {
+            // Prevent form submission
+            event.preventDefault();
+
+            // Get search query from input field
+            var query = document.getElementById('search-input').value.trim().toLowerCase();
+            
+            // Example: Hardcoded data for games (Replace with actual data retrieval logic)
+            var games = [
+                { title: "Minecraft", description: "Minecraft is a sandbox video game developed by Mojang Studios, initially created by Markus Persson, also known as Notch. It was first released to the public in May 2009 as a developmental alpha version and fully released in November 2011, with continual updates and expansions since then. Here’s an overview of the game:" },
+                { title: "candy crush", description: "Candy Crush Saga is a popular puzzle video game developed and published by King, a subsidiary of Activision Blizzard. It was released initially as a Facebook game in April 2012 and later made available as a mobile app on various platforms, including iOS and Android. Here’s an overview of the game:" },
+                {title:"subwaysurf",description:"it is a good entertaining game"}
+            ];
+
+            // Filter games based on search query
+            var filteredGames = games.filter(function(game) {
+                return game.title.toLowerCase().includes(query);
+            });
+
+            // Display search results
+            displayResults(filteredGames);
+
+            // Prevent form submission
+            return false;
+        }
+
+        function displayResults(results) {
+            var resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = ''; // Clear previous results
+
+            if (results.length > 0) {
+                results.forEach(function(game) {
+                    var gameElement = document.createElement('div');
+                    gameElement.classList.add('game-item');
+                    gameElement.innerHTML = `
+                        <h2>${game.title}</h2>
+                        <p>${game.description}</p>
+                    `;
+                    resultsContainer.appendChild(gameElement);
+                });
+            } else {
+                resultsContainer.innerHTML = '<p>No results found.</p>';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!-- search-results.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container result-container">
+        <?php
+        if (isset($_GET['q'])) {
+            $search_query = $_GET['q'];
+            
+            // Example: Perform search in database or hardcoded data
+            $games = array(
+                "Game Title 1" => "Description of Game 1",
+                "Game Title 2" => "Description of Game 2",
+                // Add more games as needed
+            );
+            
+            // Check if the game title exists in the array
+            if (array_key_exists($search_query, $games)) {
+                echo "<h2>{$search_query}</h2>";
+                echo "<p>{$games[$search_query]}</p>";
+            } else {
+                echo "<p class='no-results'>No results found for '{$search_query}'</p>";
+            }
+        }
+        ?>
+    </div>
+</body>
+</html>
